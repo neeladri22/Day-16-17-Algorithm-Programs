@@ -11,7 +11,10 @@ namespace AlgorithmPrograms
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Anagram Program");
+            anagram();
 
+            /*
             Console.WriteLine("Welcome to BubbleSort Program");
             Console.WriteLine("Please enter the length of the Array");
             int n = int.Parse(Console.ReadLine());
@@ -25,9 +28,7 @@ namespace AlgorithmPrograms
             }
 
             Program.BubbleSort(arr);
-
-
-            /*
+                        
             insertionSort();
 
             // String array which has different strings
@@ -134,7 +135,7 @@ namespace AlgorithmPrograms
             }
         }
 
-        */
+        
 
         static void BubbleSort(int[] arr)
         {
@@ -161,6 +162,35 @@ namespace AlgorithmPrograms
                 Console.WriteLine(i);
             }
 
+        }
+
+        */
+
+        public static void anagram()
+        {
+            //Receive Words from User  
+            Console.Write("Enter first word:");
+            string word1 = Console.ReadLine();
+            Console.Write("Enter second word:");
+            string word2 = Console.ReadLine();
+ 
+            char[] char1 = word1.ToLower().ToCharArray();
+            char[] char2 = word2.ToLower().ToCharArray();
+ 
+            Array.Sort(char1);
+            Array.Sort(char2);
+            string str1 = new string(char1);
+            string str2 = new string(char2);
+ 
+            if (str1 == str2)
+            {
+                Console.WriteLine("Both the Words are Anagrams", word1, word2);
+            }
+            else
+            {
+                Console.WriteLine("Both the Words are not Anagrams", word1, word2);
+            }
+            Console.ReadLine();
         }
 
     }
