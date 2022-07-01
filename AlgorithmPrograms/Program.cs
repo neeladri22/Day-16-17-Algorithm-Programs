@@ -11,6 +11,9 @@ namespace AlgorithmPrograms
         // permutations of the string program
         public static void Main(string[] args)
         {
+             insertionSort();
+            /*
+
             // String array which has different strings
             String[] arr = { "Neeladri", "Vamsi", "Mahesh", "Hema", "Laxman", "Varsha" };
 
@@ -27,10 +30,11 @@ namespace AlgorithmPrograms
 
             // permutations of the string
 
-            // String str = "NEEl";
-            // int len = str.Length;
-            // Console.WriteLine("All the permutations of the string are: ");
-            // generatePermutation(str, 0, len);
+             String str = "NEEl";
+             int len = str.Length;
+             Console.WriteLine("All the permutations of the string are: ");
+             generatePermutation(str, 0, len);
+            */
         }
         /*
         public static String swapString(String a, int i, int j)
@@ -62,7 +66,7 @@ namespace AlgorithmPrograms
                 }
             }
         }  
-        */
+        
 
         static int binarySearch(String[] arr, String x)
         {
@@ -90,7 +94,29 @@ namespace AlgorithmPrograms
             }
             return -1;
         }
+        */
+        public static void insertionSort()
+        {
+            int[] arr = { 10, 22, 55, 14, 33, 7 };
 
+            for (int i = 1; i < arr.Length; i++)
+            {
+                int temp = arr[i];
+                int j = i - 1;
+
+                while (j >= 0 && arr[j] > temp)
+                {
+                    arr[j + 1] = arr[j];
+                    j--;
+                }
+                arr[j + 1] = temp;
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+        }
     }
 
 }
