@@ -11,6 +11,9 @@ namespace AlgorithmPrograms
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Prime number Program");
+            primeNumbers();
+            /*
             Console.WriteLine("Welcome to Merge Sort Program");
 
             int[] arr = { 15, 10, 11, 6, 7, 8 };
@@ -22,7 +25,6 @@ namespace AlgorithmPrograms
             Console.WriteLine("\nSorted array");
             printArray(arr);
 
-            /*
             Console.WriteLine("Welcome to Anagram Program");
             anagram();
 
@@ -204,7 +206,7 @@ namespace AlgorithmPrograms
             Console.ReadLine();
         }
 
-        */
+       
         //Creating the Merge Sort Method
         public static void mergeSort(int[] arr, int l, int m, int r)
         {
@@ -279,8 +281,29 @@ namespace AlgorithmPrograms
             Console.WriteLine();
         }
 
+         */
+        public static void primeNumbers()
+        {
+            for (int i = 1; i <= 1000; i++)
+            {
+                int div = 1;
+                int count = 0;
+                while (div <= i)
+                {
+                    if (i % div == 0)
+                    {
+                        count++;
+                    }
+                    div++;
+                }
+
+                if (count == 2)
+                    Console.WriteLine(i);
+            }
+        }
     }
 }
+
 
 
 
