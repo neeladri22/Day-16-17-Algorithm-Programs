@@ -8,6 +8,31 @@ namespace AlgorithmPrograms
 {
     internal class Program
     {
+        // permutations of the string program
+        public static void Main(string[] args)
+        {
+            // String array which has different strings
+            String[] arr = { "Neeladri", "Vamsi", "Mahesh", "Hema", "Laxman", "Varsha" };
+
+            String x = "neeladri";
+            int result = binarySearch(arr, x);
+            if (result == -1)
+            {
+                Console.WriteLine("Element is not present");
+            }
+            else
+            {
+                Console.WriteLine("Element found at index : " + result);
+            }
+
+            // permutations of the string
+
+            // String str = "NEEl";
+            // int len = str.Length;
+            // Console.WriteLine("All the permutations of the string are: ");
+            // generatePermutation(str, 0, len);
+        }
+        /*
         public static String swapString(String a, int i, int j)
         {
             char[] b = a.ToCharArray();
@@ -19,14 +44,7 @@ namespace AlgorithmPrograms
             return string.Join("", b);
         }
 
-        public static void Main()
-        {
-            String str = "NEEl";
-            int len = str.Length;
-            Console.WriteLine("All the permutations of the string are: ");
-            generatePermutation(str, 0, len);
-
-        }
+       
 
         //Function for generating different permutations of the string  
         public static void generatePermutation(String str, int start, int end)
@@ -43,7 +61,36 @@ namespace AlgorithmPrograms
                     str = swapString(str, start, i);
                 }
             }
+        }  
+        */
+
+        static int binarySearch(String[] arr, String x)
+        {
+            int l = 0, r = arr.Length - 1;
+            while (l <= r)
+            {
+                int m = l + (r - l) / 2;
+
+                int res = x.CompareTo(arr[m]);
+
+                if (res == 0)
+                {
+                    return m;
+                }
+
+                if (res > 0)
+                {
+                    l = m + 1;
+                }
+
+                else
+                {
+                    r = m - 1;
+                }
+            }
+            return -1;
         }
+
     }
 
 }
