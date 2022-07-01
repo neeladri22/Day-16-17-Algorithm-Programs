@@ -11,10 +11,21 @@ namespace AlgorithmPrograms
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Merge Sort Program");
+
+            int[] arr = { 15, 10, 11, 6, 7, 8 };
+            Console.WriteLine("Given Array");
+            printArray(arr);
+
+            // Sort Array 
+            sort(arr, 0, arr.Length - 1);
+            Console.WriteLine("\nSorted array");
+            printArray(arr);
+
+            /*
             Console.WriteLine("Welcome to Anagram Program");
             anagram();
 
-            /*
             Console.WriteLine("Welcome to BubbleSort Program");
             Console.WriteLine("Please enter the length of the Array");
             int n = int.Parse(Console.ReadLine());
@@ -164,7 +175,7 @@ namespace AlgorithmPrograms
 
         }
 
-        */
+        
 
         public static void anagram()
         {
@@ -191,6 +202,81 @@ namespace AlgorithmPrograms
                 Console.WriteLine("Both the Words are not Anagrams", word1, word2);
             }
             Console.ReadLine();
+        }
+
+        */
+        //Creating the Merge Sort Method
+        public static void mergeSort(int[] arr, int l, int m, int r)
+        {
+
+            int n1 = m - l + 1;
+            int n2 = r - m;
+
+
+            int[] L = new int[n1];
+            int[] R = new int[n2];
+            int i, j;
+
+            for (i = 0; i < n1; ++i)
+                L[i] = arr[l + i];
+            for (j = 0; j < n2; ++j)
+                R[j] = arr[m + 1 + j];
+
+
+            i = 0;
+            j = 0;
+
+            int k = l;
+            while (i < n1 && j < n2)
+            {
+                if (L[i] <= R[j])
+                {
+                    arr[k] = L[i];
+                    i++;
+                }
+                else
+                {
+                    arr[k] = R[j];
+                    j++;
+                }
+                k++;
+            }
+
+            while (i < n1)
+            {
+                arr[k] = L[i];
+                i++;
+                k++;
+            }
+
+            while (j < n2)
+            {
+                arr[k] = R[j];
+                j++;
+                k++;
+            }
+        }
+        //Sorting the Array
+        public static void sort(int[] arr, int l, int r)
+        {
+            if (l < r)
+            {
+                int m = l + (r - l) / 2;
+                sort(arr, l, m);
+                sort(arr, m + 1, r);
+                mergeSort(arr, l, m, r);
+            }
+        }
+        //printing the array
+        public static void printArray(int[] arr)
+        {
+            int n = arr.Length;
+            for (int i = 0; i < n; ++i)
+            {
+                Console.Write(arr[i] + " ");
+            }
+
+            Console.WriteLine();
         }
 
     }
