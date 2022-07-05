@@ -11,9 +11,13 @@ namespace AlgorithmPrograms
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Prime Numbers list from 0 to 1000");
+            PrimeNumber.PrimeNumberRange();
+
+            /*
             Console.WriteLine("Welcome to Prime number Program");
             primeNumbers();
-            /*
+            
             Console.WriteLine("Welcome to Merge Sort Program");
 
             int[] arr = { 15, 10, 11, 6, 7, 8 };
